@@ -22,7 +22,7 @@ class PropertyParamsValidator
     validate_property_type_matching if property_type.present?
     validate_marketing_type_matching if marketing_type.present?
 
-    errors
+    self
   end
 
   def validate_coordinates_presence
@@ -36,19 +36,19 @@ class PropertyParamsValidator
   end
 
   def validate_coordinates_matching
-    errors.add(:latitude, 'is incorrect')if lat.present? && !lat.match(LATITUDE_REGEXP_PATTERN)
-    errors.add(:longitude, 'is incorrect')if lng.present? && !lng.match(LONGITUDE_REGEXP_PATTERN)
+    errors.add(:latitude, 'is invalid') if lat.present? && !lat.match(LATITUDE_REGEXP_PATTERN)
+    errors.add(:longitude, 'is invalid') if lng.present? && !lng.match(LONGITUDE_REGEXP_PATTERN)
   end
 
   def validate_property_type_matching
     return if VALID_PROPERTY_TYPES.include?(property_type)
 
-    errors.add(:property_type, 'must be apartment or single_family_house')
+    errors.add(:property_type, 'is invalid')
   end
 
   def validate_marketing_type_matching
     return if VALID_MARKETING_TYPES.include?(marketing_type)
 
-    errors.add(:marketing_type, 'must be rent or sell')
+    errors.add(:marketing_type, 'is invalid')
   end
 end
