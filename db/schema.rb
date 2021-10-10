@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_07_101426) do
+ActiveRecord::Schema.define(version: 2021_10_09_193258) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "cube"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2021_10_07_101426) do
     t.decimal "number_of_rooms", precision: 15, scale: 2
     t.string "currency"
     t.decimal "price", precision: 15, scale: 2
+    t.index "earth_box(ll_to_earth((lat)::double precision, (lng)::double precision), (5000)::double precision)", name: "properties_on_coordinates", using: :gist
   end
 
 end
