@@ -36,7 +36,7 @@ RSpec.describe PropertyParamsValidator do
   subject { described_class.new(property_params).validate }
 
   let(:params) do
-    {lat: '52.5342963', lng: '13.4236807', property_type: 'apartment', marketing_type: 'sell'}
+    {lat: 52.5342963, lng: 13.4236807, property_type: 'apartment', marketing_type: 'sell'}
   end
 
   context 'when all params are valid' do

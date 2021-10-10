@@ -4,7 +4,7 @@ RSpec.describe Properties::FindClosestPropertiesService do
   subject { described_class.new(params).call }
 
   let(:params) do
-    {lat: '52.5342963', lng: '13.4236807', property_type: 'apartment', marketing_type: 'sell'}
+    {lat: 52.5342963, lng: 13.4236807, property_type: 'apartment', marketing_type: 'sell'}
   end
 
   let!(:properties_within_5_km) { create_list(:property, 5, :within_5_km) }

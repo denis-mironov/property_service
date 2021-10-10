@@ -36,8 +36,8 @@ class PropertyParamsValidator
   end
 
   def validate_coordinates_matching
-    errors.add(:latitude, 'is invalid') if lat.present? && !lat.match(LATITUDE_REGEXP_PATTERN)
-    errors.add(:longitude, 'is invalid') if lng.present? && !lng.match(LONGITUDE_REGEXP_PATTERN)
+    errors.add(:latitude, 'is invalid') if lat.present? && !lat.to_s.match(LATITUDE_REGEXP_PATTERN)
+    errors.add(:longitude, 'is invalid') if lng.present? && !lng.to_s.match(LONGITUDE_REGEXP_PATTERN)
   end
 
   def validate_property_type_matching
