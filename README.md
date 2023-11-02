@@ -1,5 +1,5 @@
 # Property service
-Ruby on Rails app with one endpoint, that return properties list within 5 km from given coordinates. Using:
+Ruby on Rails app with one endpoint, that returns properties list within 5 km from given coordinates. Using:
  - Ruby version - 3.0.2
  - Rails version - 6.1.4
 
